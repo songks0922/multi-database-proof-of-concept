@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mysql-server1:
+    image: mysql:8.0
+    platform: linux/amd64
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=topic
+      - MYSQL_ROOT_PASSWORD=admin
+    volumes:
+      - ./db/initTopicTable.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - '4000:3306'
+  mysql-server2:
+    image: mysql:8.0
+    platform: linux/amd64
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=sms
+      - MYSQL_ROOT_PASSWORD=admin
+    volumes:
+      - ./db/initSmsTable.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - '4003:3306'

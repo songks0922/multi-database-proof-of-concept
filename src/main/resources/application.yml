@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    db1:
+      url: jdbc:mysql://localhost:4000/topic?useSSL=false&serverTimezone=UTC
+      username: root
+      password: admin
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    db2:
+      url: jdbc:mysql://localhost:4003/sms?useSSL=false&serverTimezone=UTC
+      username: root
+      password: admin
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+#    properties:
+#      hibernate:
+#        format_sql=true:
