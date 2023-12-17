@@ -3,8 +3,6 @@ services:
   mysql-server1:
     image: mysql:8.0
     platform: linux/amd64
-    cap_add:
-      - SYS_NICE
     restart: always
     environment:
       - MYSQL_DATABASE=topic
@@ -16,8 +14,6 @@ services:
   mysql-server2:
     image: mysql:8.0
     platform: linux/amd64
-    cap_add:
-      - SYS_NICE
     restart: always
     environment:
       - MYSQL_DATABASE=sms
